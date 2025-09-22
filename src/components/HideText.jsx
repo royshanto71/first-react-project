@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 
-const ShowHideText = () => {
-  // state to track visibility
+function ShowHideText() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // toggle function
-  const toggleText = () => {
-    setIsVisible((previous) => !previous);
-  };
+  function handleToggle() {
+    if (isVisible === true) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  }
 
   return (
     <div className="container">
-      {isVisible && <h1>Hello, React Learner!</h1>}
-      <button onClick={toggleText}>
+      {isVisible ? <h1>Hello, React Learner!</h1> : null}
+
+      <button onClick={handleToggle}>
         {isVisible ? "Hide Text" : "Show Text"}
       </button>
     </div>
   );
-};
+}
 
 export default ShowHideText;
